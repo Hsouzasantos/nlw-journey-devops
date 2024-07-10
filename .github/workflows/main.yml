@@ -44,11 +44,11 @@ jobs:
       #    docker push hugossantos/nlw.journey.devops.api:latest
 
       #Second Form
-      - name: Build and Push docker image
+      - name: Build and push
         uses: docker/build-push-action@v6
         with:
           context: .
           push: true
           tags: |
-            hugossantos/journeyapi:${{steps.generate_sha.outputs.sha}}
-            hugossantos/journeyapi:latest
+            hugossantos/journey:${{steps.generate_sha.outputs.sha}}
+            hugossantos/journey:latest
