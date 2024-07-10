@@ -50,5 +50,5 @@ jobs:
           context: .
           push: true
           tags: |
-            hugossantos/nlw.journey.api:${{steps.generate_sha.outputs.sha}}
-            hugossantos/nlw.journey.api:latest
+            hugossantos/journeyapi:${{steps.generate_sha.outputs.sha}}
+            hugossantos/journeyapi:latest
