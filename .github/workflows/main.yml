@@ -39,16 +39,7 @@ jobs:
       # First form
       - name: Push docker image
         run: |
-         docker push hugossantos/journey:${{steps.generate_sha.outputs.sha}}
-         docker tag hugossantos/journey:${{steps.generate_sha.outputs.sha}} hugossantos/nlw.journey.devops.api:latest
-         docker push hugossantos/journey:latest
+         docker push ${{secrets.DOCKERHUB_NAME}}/journey:${{steps.generate_sha.outputs.sha}}
+         docker tag ${{secrets.DOCKERHUB_NAME}}/journey:${{steps.generate_sha.outputs.sha}} ${{secrets.DOCKERHUB_NAME}}/journey:latest
+         docker push ${{secrets.DOCKERHUB_NAME}}/journey:latest
 
-      #Second Form
-      # - name: Build and push
-      #   uses: docker/build-push-action@v6
-      #   with:
-      #     context: .
-      #     push: true
-      #     tags: |
-      #       hugossantos/journey:${{steps.generate_sha.outputs.sha}}
-      #       hugossantos/journey:latest
