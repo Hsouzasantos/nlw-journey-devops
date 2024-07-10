@@ -32,7 +32,9 @@ jobs:
           password: ${{secrets.DOCKERHUB_PASSWORD}}
 
       # Second Form
-      - name: Build and push
+
+      -
+        name: Build and push
         uses: docker/build-push-action@v6
         with:
           context: .
