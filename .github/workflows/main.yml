@@ -33,13 +33,13 @@ jobs:
 
           
           
-    # Realizar o Push para o Docker Hub
-      - name: Build docker image
-        run: docker build -t hugossantos/journey:${{steps.generate_sha.outputs.sha}} .
-      # First form
-      - name: Push docker image
-        run: |
-         docker push ${{secrets.DOCKERHUB_NAME}}/journey:${{steps.generate_sha.outputs.sha}}
-         docker tag ${{secrets.DOCKERHUB_NAME}}/journey:${{steps.generate_sha.outputs.sha}} ${{secrets.DOCKERHUB_NAME}}/journey:latest
-         docker push ${{secrets.DOCKERHUB_NAME}}/journey:latest
-
+   
+      # Second Form
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{secrets.DOCKERHUB_NAME}}/journey:${{steps.generate_sha.outputs.sha}}
+            ${{secrets.DOCKERHUB_NAME}}/journey:latest
