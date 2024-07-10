@@ -38,5 +38,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{secrets.DOCKERHUB_NAME}}/journey.api:latest
-            ${{secrets.DOCKERHUB_NAME}}/journey.api:${{ steps.generate_sha.outputs.sha }}
+            ${{secrets.DOCKERHUB_NAME}}/app:latest
+            ${{secrets.DOCKERHUB_NAME}}/app:${{ steps.generate_sha.outputs.sha }}
